@@ -1,0 +1,68 @@
+<%- include ("../partials/header") %>
+<div class="container">
+    <header class="jumbotron">
+        <div class="text-center">
+            <% if(currentUser && currentUser.isAdmin) {%>
+                <h1>Hi admin <strong><%= currentUser.username %></strong></h1>
+                <h4 class="ui horizontal divider header">
+                    <i class="tag icon"></i>
+                    Description
+                </h4>
+                <p>Here you need to validate if college fee payment is done by students or not.</p>
+            
+            <% }else{ %>
+                <h1>Hi proctor <strong><%= currentUser.username %></strong></h1>
+                <h4 class="ui horizontal divider header">
+                    <i class="tag icon"></i>
+                    Description
+                </h4>
+                <p>Here you can check if the students have done payment or not.</p>
+                <p>If not then you can personally ask them to pay the college fee</p>
+            <% }%>
+        </div>
+    </header>
+    <div class="row text-center" style="display: flex; flex-wrap: wrap">
+        <div class="col-lg-3 col-med-3 col-sm-6">
+          <div class="thumbnail">
+              <img src= "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+              <div class="caption">
+                  <h4>Logot and back to Home</h4>	
+              </div>
+              <p>
+              <a href="/logout" class="btn btn-primary">Logout</a>	
+              </p>
+          </div>
+        </div>
+        <% if(!currentUser.isAdmin) {%>
+            <div class="col-lg-3 col-med-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src= "https://images.unsplash.com/photo-1460518451285-97b6aa326961?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                    <div class="caption">
+                        <h4>Add new student</h4>	
+                    </div>
+                    <p>
+                    <a href="/user/<%= currentUser._id %>/students/new" class="btn btn-primary">New</a>	
+                    </p>
+                </div>
+            </div>
+        <% } %>
+        <div class="col-lg-3 col-med-3 col-sm-6">
+            <div class="thumbnail">
+                <img src= "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                <div class="caption">
+                    <h4>View all students</h4>	
+                </div>
+                <p>
+                <a href="/user/<%= currentUser._id %>" class="btn btn-primary">all students</a>	
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<%- include ("../partials/footer") %>
