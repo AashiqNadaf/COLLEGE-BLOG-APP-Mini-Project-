@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
       </head>
     <body id="bdy">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
@@ -28,6 +28,20 @@
                 <ul class="nav navbar-nav">
                   <li><a href="/blogs">All Blogs </a></li>
                   <li><a href="http://localhost:3000">Fee Validation Section </a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Different Sections<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/blogs">Common Announcement Page</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="/exams">Examinaton Announcement</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="/jobs">Interview Announcement</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="/projects">Project Display</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="/events">Events Announcement</a></li>
+                    </ul>
+                  </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                   <% if(currentUser && currentUser.isAdmin) {%>

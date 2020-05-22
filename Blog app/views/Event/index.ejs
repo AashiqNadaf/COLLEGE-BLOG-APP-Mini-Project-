@@ -1,0 +1,50 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div>
+            <h1>Welcome to MSRIT EVENT's ANNOUNCEMENT APP</h1>
+            <p>View all events posted from our college</p>
+            <p><a class="btn btn-primary btn-lg" href="/events/new">Post new Event's Announcement</a></p>
+        </div>
+    </header>
+</div>
+
+<div class="ui main text container">
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% events.forEach(function(event){ %>
+                <div class="item">
+                    <div class="ui tiny image">
+                        <% if(!event.image1) {%>
+                            <img src="https://webmaster.ypsa.org/wp-content/uploads/2012/08/no_thumb.jpg">
+                        <% }else { %>
+                            <img src="<%= event.image1 %>">
+                        <% } %>
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/events/<%= event._id %>"><%= event.title %></a>
+                        <p><i>Submitted by <%= event.author.username %></i></p>
+                        <div class="meta">
+                            <span><%= event.created.toDateString() %></span>
+                        </div>
+                        <div class="description">
+                            <p><b><i>Event Date: <%= event.date %></i></b></p>
+                            <p><%- event.description.substring(0, 100) %>...</p>
+                        </div>
+                        <div class="extra">
+                            <a class="mini ui floated basic violet button" href="/events/<%= event._id %>">
+                                Read More
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>    
+                </div>
+            <% }) %>              
+        </div>
+    </div>
+</div>
+
+
+<%- include ("../partials/footer") %>
+

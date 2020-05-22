@@ -1,0 +1,185 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center;">Post a New Exam</h1>
+		<div style="width: 70%; margin: 25px auto;">
+			<form action="/exams" method="POST">
+				<div class="form-group">
+					<label>Type of Exam</label>
+					<input class="form-control" type="text" name="typeOfExam" placeholder="Type of Exam">
+				</div>
+				<div class="form-group">
+					<label>Department</label>
+					<input class="form-control" type="text" name="branch" placeholder="Department">
+				</div>
+				<div class="form-group">
+					<label>Semester</label>
+					<input class="form-control" type="text" name="sem" placeholder="Semester">
+				</div>
+				<table class="ui celled table">
+					<thead>
+					  	<tr>
+							<th>Subject</th>
+					  		<th>Date Of Exam</th>
+						</tr>
+					</thead>
+					<tbody>
+					  	<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub1" placeholder="Subject 1">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date1" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub2" placeholder="Subject 2">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date2" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub3" placeholder="Subject 3">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date3" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub4" placeholder="Subject 4">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date4" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub5" placeholder="Subject 5">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date5" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub6" placeholder="Subject 6">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date6" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub7" placeholder="Subject 7">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date7" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub8" placeholder="Subject 8">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date8" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub9" placeholder="Subject 9">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date9" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub10" placeholder="Subject 10">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date10" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub11" placeholder="Subject 11">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date11" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="sub12" placeholder="Subject 12">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="date12" placeholder="DD-MM-YYYY">
+								</div>
+							</td>
+					  	</tr>   
+					</tbody>
+				</table>
+				<div class="form-group" style="padding-top: 10px;">
+					<button class="btn btn-lg btn-primary btn-block">Post</button>
+				</div>
+				</form>
+			<a href="/exams">Go back</a>
+		</div>
+		
+	</div>
+</div>
+
+
+<%- include ("../partials/footer") %>

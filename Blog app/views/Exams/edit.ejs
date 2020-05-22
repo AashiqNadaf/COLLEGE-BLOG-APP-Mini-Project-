@@ -1,0 +1,185 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+		<h1 style="text-align: center;">Edit Exam</h1>
+		<div style="width: 70%; margin: 25px auto;">
+			<form action="/exams/<%= exam._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+					<label>Type of Exam</label>
+					<input class="form-control" type="text" name="exam[typeOfExam]" value="<%= exam.typeOfExam %>">
+				</div>
+				<div class="form-group">
+					<label>Department</label>
+					<input class="form-control" type="text" name="exam[branch]" value="<%= exam.branch %>">
+				</div>
+				<div class="form-group">
+					<label>Semester</label>
+					<input class="form-control" type="text" name="exam[sem]" value="<%= exam.sem %>">
+				</div>
+				<table class="ui celled table">
+					<thead>
+					  	<tr>
+							<th>Subject</th>
+					  		<th>Date Of Exam</th>
+						</tr>
+					</thead>
+					<tbody>
+					  	<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub1]" value="<%= exam.sub1 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date1]" value="<%= exam.date1 %>">
+								</div>
+							</td>
+					  	</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub2]" value="<%= exam.sub2 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date2]" value="<%= exam.date2 %>">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub3]" value="<%= exam.sub3 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date3]" value="<%= exam.date3 %>">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub4]" value="<%= exam.sub4 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date4]" value="<%= exam.date4 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub5]" value="<%= exam.sub5 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date5]" value="<%= exam.date5 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub6]" value="<%= exam.sub6 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date6]" value="<%= exam.date6 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub7]" value="<%= exam.sub7 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date7]" value="<%= exam.date7 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub8]" value="<%= exam.sub8 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date8]" value="<%= exam.date8 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub9]" value="<%= exam.sub9 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date9]" value="<%= exam.date9 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub10]" value="<%= exam.sub10 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date10]" value="<%= exam.date10 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub11]" value="<%= exam.sub11 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date11]" value="<%= exam.date11 %>">
+								</div>
+							</td>
+					  	</tr>  
+						<tr>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[sub12]" value="<%= exam.sub12 %>">
+								</div>
+							</td>
+							<td>
+								<div class="form-group">
+									<input class="form-control" type="text" name="exam[date12]" value="<%= exam.date12 %>">
+								</div>
+							</td>
+					  	</tr>   
+					</tbody>
+				</table>
+				<div class="form-group" style="padding-top: 10px;">
+					<button class="btn btn-lg btn-primary btn-block">Submit</button>
+				</div>
+				</form>
+			<a href="/exams">Go back</a>
+		</div>
+		
+	</div>
+</div>
+
+
+<%- include ("../partials/footer") %>

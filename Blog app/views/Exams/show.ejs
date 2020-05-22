@@ -1,0 +1,113 @@
+<%- include ("../partials/header") %>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="thumbnail">
+                    <h1><%= exam.typeOfExam %> Exams Time table for <%= exam.branch %> semester <%= exam.sem %>.</h1>
+                    <table class="ui celled table">
+                        <thead>
+                          <tr>
+                                <th>Subjects</th>
+                                <th>Date of Exam</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if(exam.sub1) {%>
+                                <tr>
+                                    <td><%= exam.sub1 %></td>
+                                    <td><%= exam.date1 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub2) {%>
+                                <tr>
+                                    <td><%= exam.sub2 %></td>
+                                    <td><%= exam.date2 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub3) {%>
+                                <tr>
+                                    <td><%= exam.sub3 %></td>
+                                    <td><%= exam.date3 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub4) {%>
+                                <tr>
+                                    <td><%= exam.sub4 %></td>
+                                    <td><%= exam.date4 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub5) {%>
+                                <tr>
+                                    <td><%= exam.sub5 %></td>
+                                    <td><%= exam.date5 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub6) {%>
+                                <tr>
+                                    <td><%= exam.sub6 %></td>
+                                    <td><%= exam.date6 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub7) {%>
+                                <tr>
+                                    <td><%= exam.sub7 %></td>
+                                    <td><%= exam.date7 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub8) {%>
+                                <tr>
+                                    <td><%= exam.sub8 %></td>
+                                    <td><%= exam.date8 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub9) {%>
+                                <tr>
+                                    <td><%= exam.sub9 %></td>
+                                    <td><%= exam.date9 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub10) {%>
+                                <tr>
+                                    <td><%= exam.sub10 %></td>
+                                    <td><%= exam.date10 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub11) {%>
+                                <tr>
+                                    <td><%= exam.sub11 %></td>
+                                    <td><%= exam.date11 %></td>
+                                </tr>
+                            <% } %>
+                            <% if(exam.sub12) {%>
+                                <tr>
+                                    <td><%= exam.sub12 %></td>
+                                    <td><%= exam.date12 %></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <div class="caption-full">
+                        <h4><a><%=  exam.typeOfExam %></a></h4>
+                        <p><i>Submitted by <%= exam.author.username %></i></p>
+                        <p><%- exam.typeOfExam %> Exams for semester <%= exam.sem %> starts from <%= exam.date1 %></p>
+                        <% if(currentUser && exam.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
+                            <a href="/exams/<%= exam._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
+                            <form id="deleteForm" action="/exams/<%= exam._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-xs">DELETE</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/exams">Back to Exams Page</a>
+    </div>
+<%- include ("../partials/footer") %>
+
+
+
+
+  
+  
+  

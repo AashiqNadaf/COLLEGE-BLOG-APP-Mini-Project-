@@ -1,0 +1,89 @@
+<%- include ("../partials/header") %>
+    <style>
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 600px;
+                height: 400px;
+            }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="thumbnail">
+                    <div class="w3-content w3-section">
+                        <% if(project.image1) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image1 %>" >
+                        <% } %>
+                        <% if(project.image2) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image2 %>">
+                        <% } %>
+                        <% if(project.image3) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image3 %>">
+                        <% } %>
+                        <% if(project.image4) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image4 %>">
+                        <% } %>
+                        <% if(project.image5) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image5 %>">
+                        <% } %>
+                        <% if(project.image6) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image6 %>">
+                        <% } %>
+                        <% if(project.image7) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image7 %>">
+                        <% } %>
+                        <% if(project.image8) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image8 %>">
+                        <% } %>
+                        <% if(project.image9) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image9 %>">
+                        <% } %>
+                        <% if(project.image10) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= project.image10 %>">
+                        <% } %>
+                    </div>
+                    <div class="caption-full">
+                        <h2><a><%=  project.title %></a></h2>
+                        <p><b>Project Made by: <i><%= project.teamMembers %></i></b></p>
+                        <p><b>Department: <i><%= project.branch %></i></b></p>
+                        <p><i>Submitted by <%= project.author.username %></i></p>
+                        <label>Project Information</label>
+                        <p><%- project.description %></p>
+                        <% if(currentUser && project.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
+                            <a href="/projects/<%= project._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
+                            <form id="deleteForm" action="/projects/<%= project._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-xs">DELETE</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/projects">Back to project Page</a>
+    </div>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 10000); // Change image every 2 seconds
+        }
+    </script>
+<%- include ("../partials/footer") %>
+
+
+
+
+  
+  
+  

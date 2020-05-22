@@ -1,0 +1,43 @@
+<%- include ("../partials/header") %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div>
+            <h1>Welcome to MSRIT EXAMINATION PAGE</h1>
+            <p>View all exams from our college</p>
+            <p><a class="btn btn-primary btn-lg" href="/exams/new">Post new Exam</a></p>
+        </div>
+    </header>
+</div>
+
+<div class="ui main text container">
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% exams.forEach(function(exam){ %>
+                <div class="item">
+                    <div class="content">
+                        <a class="header" href="/exams/<%= exam._id %>"><%= exam.typeOfExam %> Exams</a>
+                        <p><i>Submitted by <%= exam.author.username %></i></p>
+                        <div class="meta">
+                            <span><%= exam.created.toDateString() %></span>
+                        </div>
+                        <div class="description">
+                            <p><b>Department: <i><%= exam.branch %></i></b></p>
+                            <p><%= exam.typeOfExam %> Exam for semester <%= exam.sem %> scheduled on <%= exam.date1 %>.</p>
+                        </div>
+                        <div class="extra">
+                            <a class="mini ui floated basic violet button" href="/exams/<%= exam._id %>">
+                                Exam Time table
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>    
+                </div>
+            <% }) %>              
+        </div>
+    </div>
+</div>
+
+
+<%- include ("../partials/footer") %>
+

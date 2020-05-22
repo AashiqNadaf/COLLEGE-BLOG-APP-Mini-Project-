@@ -4,6 +4,7 @@ bodyParser 			= require("body-parser"),
 mongoose			= require("mongoose"),
 expressSanitizer 	= require("express-sanitizer"),
 Blog				= require("./modles/Blogs"),
+Event				= require("./modles/Events"),
 methodOveride		= require("method-override"),
 flash				= require("connect-flash"),
 User				= require("./modles/user"),
@@ -15,7 +16,11 @@ LocalStrategy 		= require("passport-local");
 
 //requireing routes
 var BlogRoutes 	= require("./routes/Blogs"),
-indexRoutes			= require("./routes/index");
+indexRoutes			= require("./routes/index"),
+eventRoutes			= require("./routes/Events"),
+projectRoutes			= require("./routes/Project"),
+examRoutes			= require("./routes/Exams"),
+jobRoutes			= require("./routes/Jobs");
 
 mongoose.connect("mongodb://localhost/msrit_clg_blog");
 app.set("view engine", "ejs");
@@ -46,6 +51,10 @@ app.use(function(req, res, next){
 
 app.use(indexRoutes);
 app.use("/blogs", BlogRoutes);
+app.use("/events", eventRoutes);
+app.use("/projects", projectRoutes);
+app.use("/exams", examRoutes);
+app.use("/jobs", jobRoutes);
 
 
 

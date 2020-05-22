@@ -19,7 +19,7 @@ router.get("/new", middleware.isLoggedIn,function(req, res){
 });
 
 //student create
-router.post("/", middleware.isLoggedIn,function(req, res){
+router.post("/", middleware.isNotAdmin,function(req, res){
 	//lookup user using ID
 	User.findById(req.params.id, function(err, user){
 		if(err || !user){

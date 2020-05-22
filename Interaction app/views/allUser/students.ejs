@@ -17,19 +17,23 @@
                                    Year of Joining: <%= student.yearOfJoining %>
                                    <% if( student.isFeePaid ) {%>
                                         <p>Fee Due: <span style="color: green;">Paid</span></p>
+                                        <div class="extra content">
+                                            <div class="ui two buttons">
+                                            <form action="/user/<%= currentUser._id %>/feeUndone/<%= student._id %>" method="POST">
+                                                <input class="ui basic red button" type="submit" value="Undone">
+                                            </form>
+                                            </div>
+                                        </div>
                                     <% } else {%>
                                         <p>Fee Due: <span style="color: red;" >Pending</span></p>
+                                        <div class="extra content">
+                                            <div class="ui two buttons">
+                                            <form action="/user/<%= currentUser._id %>/feeDone/<%= student._id %>" method="POST">
+                                                <input class="ui basic green button" type="submit" value="Done">
+                                            </form>
+                                            </div>
+                                        </div>
                                     <% } %>
-                                </div>
-                            </div>
-                            <div class="extra content">
-                                <div class="ui two buttons">
-                                <form action="/user/<%= currentUser._id %>/feeDone/<%= student._id %>" method="POST">
-                                    <input class="ui basic green button" type="submit" value="Done">
-                                </form>
-                                <form action="/user/<%= currentUser._id %>/feeUndone/<%= student._id %>" method="POST">
-                                    <input class="ui basic red button" type="submit" value="Undone">
-                                </form>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +45,7 @@
 <% }else{%>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-sm-12">
                 <table class="ui celled table">
                     <thead>
                         <tr><th>First Name</th>

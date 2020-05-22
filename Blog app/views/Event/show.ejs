@@ -1,0 +1,87 @@
+<%- include ("../partials/header") %>
+    <style>
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 600px;
+                height: 400px;
+            }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="thumbnail">
+                    <div class="w3-content w3-section">
+                        <% if(event.image1) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image1 %>" >
+                        <% } %>
+                        <% if(event.image2) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image2 %>">
+                        <% } %>
+                        <% if(event.image3) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image3 %>">
+                        <% } %>
+                        <% if(event.image4) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image4 %>">
+                        <% } %>
+                        <% if(event.image5) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image5 %>">
+                        <% } %>
+                        <% if(event.image6) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image6 %>">
+                        <% } %>
+                        <% if(event.image7) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image7 %>">
+                        <% } %>
+                        <% if(event.image8) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image8 %>">
+                        <% } %>
+                        <% if(event.image9) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image9 %>">
+                        <% } %>
+                        <% if(event.image10) {%>
+                            <img class="mySlides center img-responsive img-rounded" src="<%= event.image10 %>">
+                        <% } %>
+                    </div>
+                    <div class="caption-full">
+                        <h4><a><%=  event.title %></a></h4>
+                        <p><i>Submitted by <%= event.author.username %></i></p>
+                        <p><b><i>Event Date: <%= event.date %></i></b></p>
+                        <p><%- event.description %></p>
+                        <% if(currentUser && event.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
+                            <a href="/events/<%= event._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
+                            <form id="deleteForm" action="/events/<%= event._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger btn-xs">DELETE</button>
+                            </form>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="/events">Back to Events Page</a>
+    </div>
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 10000); // Change image every 2 seconds
+        }
+    </script>
+<%- include ("../partials/footer") %>
+
+
+
+
+  
+  
+  

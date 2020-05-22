@@ -76,4 +76,25 @@ middlewareobj.isAdmin = function(req, res, next){
 	  
 }
 
+middlewareobj.isNotAdmin = function(req, res, next){
+	if(req.isAuthenticated()){
+        User.findById(req.params.id, function(err, foundUser){
+            if(err || !foundUser){
+                //console.log(err);
+                req.flash("error", "User not found!");
+                res.redirect("back");
+            }else{
+                if(!(foundUser.isAdmin)){
+                    return next();
+                }else{
+                    req.flash("error", "Admin need to b loggin to do that!");
+                    res.redirect("/login");  
+                }
+            }
+        })
+		
+	}
+	  
+}
+
 module.exports = middlewareobj;
