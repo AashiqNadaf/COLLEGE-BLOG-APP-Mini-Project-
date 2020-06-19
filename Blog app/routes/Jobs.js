@@ -1,7 +1,7 @@
-var express = require("express");
-var router  = express.Router();
-var Job = require("../modles/Jobs");
-var middleware = require("../middleware");
+var express 	= require("express");
+var router  	= express.Router();
+var Job 		= require("../modles/Jobs");
+var middleware 	= require("../middleware");
 
 router.get("/", function(req, res){
 	Job.find({}).sort({created: -1}).exec(function(err, allJobs){

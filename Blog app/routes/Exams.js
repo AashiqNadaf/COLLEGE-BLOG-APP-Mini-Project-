@@ -1,7 +1,7 @@
-var express = require("express");
-var router  = express.Router();
-var Exam = require("../modles/Exams");
-var middleware = require("../middleware");
+var express 	= require("express");
+var router  	= express.Router();
+var Exam 		= require("../modles/Exams");
+var middleware 	= require("../middleware");
 
 router.get("/", function(req, res){
 	Exam.find({}).sort({created: -1}).exec(function(err, allExam){

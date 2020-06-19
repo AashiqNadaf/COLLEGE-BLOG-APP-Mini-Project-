@@ -1,11 +1,11 @@
-var express = require("express");
-var router  = express.Router();
-var passport = require("passport");
-var User = require("../modles/user");
-var async = require("async"),
-nodemailer			= require("nodemailer"),
-crypto				= require("crypto");
-var middleware = require("../middleware");
+var express 	= require("express");
+var router  	= express.Router();
+var passport	= require("passport");
+var User 		= require("../modles/user");
+var async 		= require("async"),
+nodemailer		= require("nodemailer"),
+crypto			= require("crypto"),
+middleware 		= require("../middleware");
 
 //root route
 router.get("/", function(req, res){
@@ -45,7 +45,7 @@ router.post("/register", function(req, res){
 			});
 		});
 	}else{
-		//req.flash("error", "You are not valid user!");
+		req.flash("error", "You are not valid user!");
 		res.redirect("/register");
 	}
 	
@@ -109,7 +109,7 @@ router.post("/forgot", function(req, res, next){
 			var mailOptions = {
 				to: user.email,
 				from: "ashmanimkar@gmail.com",
-				subject: "Msrit blog password reset",
+				subject: "Msrit interaction password reset",
 				text: "You are receiving this because you (or someone else) have requested the reset of the password.\n"+
 				"Please click on the following link, or paste this into your browser to complete the process.\n"+
 				"http://"+ req.headers.host + "/reset/"+ token +"\n\n"+

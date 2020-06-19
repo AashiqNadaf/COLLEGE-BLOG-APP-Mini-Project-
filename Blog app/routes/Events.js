@@ -1,7 +1,7 @@
-var express = require("express");
-var router  = express.Router();
-var Blog = require("../modles/Blogs");
-var middleware = require("../middleware");
+var express 	= require("express");
+var router  	= express.Router();
+var Blog 		= require("../modles/Blogs");
+var middleware 	= require("../middleware");
 var Event       = require("../modles/Events");
 
 router.get("/", function(req, res){

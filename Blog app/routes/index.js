@@ -1,18 +1,24 @@
-var express = require("express");
-var router  = express.Router();
-var passport = require("passport");
-var User = require("../modles/user");
-var async = require("async"),
-nodemailer			= require("nodemailer"),
-crypto				= require("crypto");
-var middleware = require("../middleware");
+var express 	= require("express");
+var router  	= express.Router();
+var passport 	= require("passport");
+var User 		= require("../modles/user");
+var async 		= require("async"),
+nodemailer		= require("nodemailer"),
+crypto			= require("crypto");
+var middleware 	= require("../middleware");
 
 //root route
 router.get("/", function(req, res){
 	res.render("index");
 });
 
-//=============================================
+
+router.get("/imgInfo", function(req, res){
+	res.render("imgInfo");
+});
+
+
+//=====================================
 //AUTH ROUTES
 //=====================================
 

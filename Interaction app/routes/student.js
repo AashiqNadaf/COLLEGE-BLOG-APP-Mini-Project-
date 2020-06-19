@@ -1,10 +1,10 @@
 var express = require("express");
 var router  = express.Router({mergeParams: true});
-var User = require("../modles/user");
-var Student  = require("../modles/student");
-var middleware = require("../middleware");
+var User    = require("../modles/user"),
+Student     = require("../modles/student"),
+middleware  = require("../middleware");
 
-//student new
+//new student route
 router.get("/new", middleware.isLoggedIn,function(req, res){
 	//find user by id
 	User.findById(req.params.id, function(err, user){
@@ -52,7 +52,7 @@ router.post("/", middleware.isNotAdmin,function(req, res){
 	});
 });
 
-//show students
+//Edit students
 router.get("/edit/:stud_id", middleware.checkUserOwnership,function(req, res){
     Student.findById(req.params.stud_id, function(err, foundStudent){
         if(err || !foundStudent){
@@ -65,7 +65,7 @@ router.get("/edit/:stud_id", middleware.checkUserOwnership,function(req, res){
     });
 });
 
-//edit student
+//update student
 router.put("/edit/:stud_id", middleware.checkStudentOwnership,function(req, res){
     Student.findByIdAndUpdate(req.params.stud_id, {
         firstName: req.body.student.firstName,
@@ -87,6 +87,7 @@ router.put("/edit/:stud_id", middleware.checkStudentOwnership,function(req, res)
     })
 });
 
+//delete student
 router.delete("/delete/:stud_id", middleware.checkStudentOwnership,function(req, res){
     Student.findByIdAndRemove(req.params.stud_id, function(err, foundStudent){
         if(err || !foundStudent){

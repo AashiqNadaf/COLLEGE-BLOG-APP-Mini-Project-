@@ -1,7 +1,8 @@
-var express = require("express");
-var router  = express.Router();
-var Blog = require("../modles/Blogs");
-var middleware = require("../middleware");
+var express 	= require("express");
+var router  	= express.Router();
+var Blog 		= require("../modles/Blogs");
+var middleware 	= require("../middleware");
+
 
 router.get("/", function(req, res){
 	Blog.find({}).sort({created: -1}).exec(function(err, allBlog){

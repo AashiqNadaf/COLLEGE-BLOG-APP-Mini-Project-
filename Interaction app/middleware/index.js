@@ -1,8 +1,10 @@
+//IMPORT SCHEMA MODLES
 var User = require("../modles/user"),
 Student  = require("../modles/student");
 
 var middlewareobj = {};
 
+//CHECK IF USER CAN EDIT STUDENTS
 middlewareobj.checkUserOwnership = function(req, res, next){
 	if(req.isAuthenticated()){
 		User.findById(req.params.id, function(err, foundUser){
@@ -25,6 +27,7 @@ middlewareobj.checkUserOwnership = function(req, res, next){
 	}    
 }
 
+//CHECK IF OWNER OWNS THE STUDENT
 middlewareobj.checkStudentOwnership = function(req, res, next){
 	if(req.isAuthenticated()){
 		Student.findById(req.params.stud_id, function(err, foundStudent){
@@ -47,6 +50,7 @@ middlewareobj.checkStudentOwnership = function(req, res, next){
 	}    
 }
 
+//CHECK IF USER IS LOGGEDIN
 middlewareobj.isLoggedIn = function(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
@@ -55,6 +59,7 @@ middlewareobj.isLoggedIn = function(req, res, next){
 	res.redirect("/login");    
 }
 
+//CHECK IF USER IS ADMIN
 middlewareobj.isAdmin = function(req, res, next){
 	if(req.isAuthenticated()){
         User.findById(req.params.id, function(err, foundUser){
@@ -76,6 +81,7 @@ middlewareobj.isAdmin = function(req, res, next){
 	  
 }
 
+//CHECK IF USER IS PROCTOR
 middlewareobj.isNotAdmin = function(req, res, next){
 	if(req.isAuthenticated()){
         User.findById(req.params.id, function(err, foundUser){

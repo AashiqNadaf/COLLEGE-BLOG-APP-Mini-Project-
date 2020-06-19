@@ -1,13 +1,12 @@
-var express = require("express");
-var router  = express.Router();
-var passport = require("passport");
-//var User = require("../modles/user");
-var async = require("async"),
-User       =   require("../modles/user"),
-Student    = require("../modles/student"),
-nodemailer			= require("nodemailer"),
-crypto				= require("crypto");
-var middleware = require("../middleware");
+var express 	= require("express");
+var router  	= express.Router();
+var passport 	= require("passport");
+var async 		= require("async"),
+User       		=   require("../modles/user"),
+Student    		= require("../modles/student"),
+nodemailer		= require("nodemailer"),
+crypto			= require("crypto");
+var middleware 	= require("../middleware");
 
 //root route
 router.get("/", middleware.isLoggedIn,function(req, res){
@@ -16,7 +15,7 @@ router.get("/", middleware.isLoggedIn,function(req, res){
 
 
 
-
+//fees updation route DONE
 router.post("/:id/feeDone/:stud_id", middleware.isAdmin,function(req, res){
 	Student.findByIdAndUpdate(req.params.stud_id,{isFeePaid: true }, function(err, foundStudent){
 		if(err || !foundStudent){
@@ -30,6 +29,7 @@ router.post("/:id/feeDone/:stud_id", middleware.isAdmin,function(req, res){
 	})
 })
 
+//fees updateion route UNDONE
 router.post("/:id/feeUndone/:stud_id", middleware.isAdmin,function(req, res){
 	Student.findByIdAndUpdate(req.params.stud_id,{isFeePaid: false }, function(err, foundStudent){
 		if(err){
@@ -43,6 +43,7 @@ router.post("/:id/feeUndone/:stud_id", middleware.isAdmin,function(req, res){
 	})
 })
 
+//show students route
 router.get("/:id", middleware.isLoggedIn,function(req, res){
 		Student.find({}).sort({noCaps: 1}).exec(function(err, allStudents){
 			if(err || !allStudents){
